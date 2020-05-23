@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title th:replace="~{commons/admincommon::title}">Conn's Blog 后台管理</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div th:replace="~{commons/admincommon::header}"></div>
+    <div th:replace="~{commons/admincommon::sidebar(active='admin.html')}"></div>
+    <div class="layui-body">
+        <i class="layui-icon">&#xe68f;</i>
+        <span>还没写呢</span>
+    </div>
+    <div th:replace="~{commons/admincommon::footer}"></div>
+</div>
+
+
+<script th:src="@{/layui/layui.js}"></script>
+<script>
+    layui.use(['element'], function () {
+        var element = layui.element;
+    })
+</script>
+</body>
+</html>
