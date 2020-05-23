@@ -12,11 +12,31 @@
     <div th:replace="~{commons/admincommon::sidebar(active='sortmanager.html')}"></div>
 
     <div class="layui-body">
-        <form class="layui-form" action="">
+        <form class="layui-form" th:action="@{/updateSort}" method="post">
+            <div class="layui-form-item">
+                <label class="layui-form-label">分类修改</label>
+            </div>
+            <input type="hidden" name="id" th:value="${sortInfo.getId()}">
             <div class="layui-form-item">
                 <label class="layui-form-label">分类名称</label>
                 <div class="layui-input-block">
-                    <input type="text" name="name" required lay-verify="required" placeholder="请输入分类名称" class="layui-input" th:value="${sortInfo.getName()}">
+                    <input type="text" name="name" required placeholder="请输入分类名称"
+                           class="layui-input" th:value="${sortInfo.getName()}">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">是否有效</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="isEffective" value="1" title="是"
+                           th:checked="${sortInfo.getIsEffective()==1}"/>
+                    <input type="radio" name="isEffective" value="0" title="否"
+                           th:checked="${sortInfo.getIsEffective()==0}"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" type="submit">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                 </div>
             </div>
         </form>
@@ -28,6 +48,9 @@
     layui.use(['element'], function () {
         var element = layui.element;
     });
+    layui.use('form', function() {
+        var form = layui.form;
+    })
 </script>
 </table>
 </body>
