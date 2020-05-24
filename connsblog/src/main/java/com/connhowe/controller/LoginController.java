@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class LoginController {
 
-    @PostMapping("/login")
+    @PostMapping("/user/login")
     public String login(
             @RequestParam("username") String username,
             @RequestParam("password") String password,

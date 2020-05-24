@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form th:action="@{/login}" method="post">
+<form th:action="@{/user/login}" method="post">
     <h1>请登录</h1>
     <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
     <label>用户名：</label>
