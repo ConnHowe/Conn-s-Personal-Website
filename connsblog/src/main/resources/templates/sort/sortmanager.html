@@ -34,7 +34,7 @@
                 <td th:text="${#dates.format(sortInfo.getModifiedBy(), 'yyyy-MM-dd HH:mm:ss')}">modified_by</td>
                 <td th:text="${sortInfo.getIsEffective()==1?'是':'否'}">is_effective</td>
                 <td>
-                    <a class="layui-btn" th:href="@{/admin/sort/} + ${sortInfo.getId()}">编辑</a>
+                    <a class="layui-btn" th:href="@{/sort/} + ${sortInfo.getId()}">编辑</a>
                     <button class="layui-btn layui-btn-danger">删除</button>
                 </td>
             </tr>
