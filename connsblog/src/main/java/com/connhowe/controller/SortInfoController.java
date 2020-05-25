@@ -2,7 +2,6 @@ package com.connhowe.controller;
 
 import com.connhowe.entity.SortInfo;
 import com.connhowe.service.SortInfoService;
-import com.connhowe.service.impl.SortInfoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +18,10 @@ public class SortInfoController {
     private SortInfoService sortInfoService;
 
     @GetMapping("/sortInfos")
-    public String getAll(Model model) {
+    public String list(Model model) {
         Collection<SortInfo> sortInfos = sortInfoService.getSortInfos();
         model.addAttribute("sortInfos", sortInfos);
-        return "sort/sortmanager";
+        return "sort/list";
     }
 
     @PostMapping("/updateSort")
