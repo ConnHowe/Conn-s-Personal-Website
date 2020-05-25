@@ -26,6 +26,20 @@ public class SortInfoServiceImpl implements SortInfoService {
     }
 
     public void update(SortInfo sortInfo) {
-        sortInfoMapper.update(sortInfo.getId(), sortInfo.getName(), sortInfo.getIsEffective(), new Date());
+        sortInfo.setModifiedBy(new Date());
+        sortInfoMapper.update(sortInfo);
+    }
+
+    @Override
+    public void delSortById(Long id) {
+        sortInfoMapper.delSortById(id);
+    }
+
+    @Override
+    public void addSort(SortInfo sortInfo) {
+        sortInfo.setCreateBy(new Date());
+        sortInfo.setModifiedBy(new Date());
+        sortInfo.setNumber(0);
+        sortInfoMapper.addSort(sortInfo);
     }
 }

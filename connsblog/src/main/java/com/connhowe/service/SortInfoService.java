@@ -11,4 +11,8 @@ public interface SortInfoService {
     SortInfo getSortInfoById(Long id);
 
     void update(SortInfo sortInfo);
+
+    void delSortById(Long id);
+
+    void addSort(SortInfo sortInfo);
 }

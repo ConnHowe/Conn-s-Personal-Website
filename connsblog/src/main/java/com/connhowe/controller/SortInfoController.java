@@ -28,7 +28,7 @@ public class SortInfoController {
     @PostMapping("/updateSort")
     public String update(SortInfo sortInfo) {
         sortInfoService.update(sortInfo);
-        return "redirect:/admin/sortmanager";
+        return "redirect:/sortInfos";
     }
 
     @GetMapping("/sort/{id}")
@@ -38,5 +38,20 @@ public class SortInfoController {
         return "sort/update";
     }
 
+    @GetMapping("/delSort/{id}")
+    public String delSortById(@PathVariable("id") Long id) {
+        sortInfoService.delSortById(id);
+        return "redirect:/sortInfos";
+    }
 
+    @PostMapping("/addSort")
+    public String addSort(SortInfo sortInfo) {
+        sortInfoService.addSort(sortInfo);
+        return "redirect:/sortInfos";
+    }
+
+    @GetMapping("/addSort")
+    public String addSort() {
+        return "sort/add";
+    }
 }

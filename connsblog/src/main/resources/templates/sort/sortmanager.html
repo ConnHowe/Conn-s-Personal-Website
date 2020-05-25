@@ -12,6 +12,9 @@
     <div th:replace="~{commons/admincommon::sidebar(active='sortmanager.html')}"></div>
 
     <div class="layui-body">
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend>分类管理</legend>
+        </fieldset>
         <table class="layui-table">
             <tr>
                 <th>编号</th>
@@ -21,8 +24,7 @@
                 <th>上一次修改时间</th>
                 <th>是否有效</th>
                 <th>
-                    <button class="layui-btn">新增</button>
-                    <button class="layui-btn layui-btn-danger">删除</button>
+                    <a class="layui-btn layui-btn-checked" th:href="@{/addSort}">新增</a>
                 </th>
             </tr>
             <br>
@@ -35,7 +37,7 @@
                 <td th:text="${sortInfo.getIsEffective()==1?'是':'否'}">is_effective</td>
                 <td>
                     <a class="layui-btn" th:href="@{/sort/} + ${sortInfo.getId()}">编辑</a>
-                    <button class="layui-btn layui-btn-danger">删除</button>
+                    <a class="layui-btn layui-btn-danger" th:href="@{/delSort/} + ${sortInfo.getId()}">删除</a>
                 </td>
             </tr>
 

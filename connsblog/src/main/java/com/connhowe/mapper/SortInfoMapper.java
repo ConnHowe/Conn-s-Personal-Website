@@ -1,14 +1,9 @@
 package com.connhowe.mapper;
 
 import com.connhowe.entity.SortInfo;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
-import javax.xml.crypto.Data;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -26,5 +21,11 @@ public interface SortInfoMapper {
     SortInfo getSortInfoById(@Param("id") Long id);
 
     @Update("update sort_info set name=#{name}, modified_by=#{modifiedBy}, is_effective=#{isEffective} where id=#{id}")
-    void update(@Param("id") Long id, @Param("name") String name, @Param("isEffective") Integer isEffective, @Param("modifiedBy") Date modifiedBy);
+    void update(SortInfo sortInfo);
+
+    @Delete("delete from sort_info where id=#{id}")
+    void delSortById(@Param("id") Long id);
+
+    @Insert("insert into sort_info(name, number, create_by, modified_by, is_effective) values (#{name}, #{number}, #{createBy}, #{modifiedBy}, #{isEffective})")
+    void addSort(SortInfo sortInfo);
 }
