@@ -13,7 +13,7 @@
 
     <div class="layui-body">
         <fieldset class="layui-elem-field layui-field-title">
-            <legend>文章管理</legend>
+            <legend>博文管理</legend>
         </fieldset>
         <table class="layui-table">
             <tr>
@@ -40,8 +40,8 @@
                 <td th:text="${#dates.format(articleInfo.getCreateBy(), 'yyyy-MM-dd HH:mm:ss')}">create_by</td>
                 <td th:text="${#dates.format(articleInfo.getModifiedBy(), 'yyyy-MM-dd HH:mm:ss')}">modified_by</td>
                 <td>
-                    <a class="layui-btn" th:href="@{/article/} + ${articleInfo.getId()}">编辑</a>
-                    <a class="layui-btn layui-btn-danger" th:href="@{/delArticle/} + ${articleInfo.getId()}">删除</a>
+                    <a class="layui-btn" th:href="@{/article/update/} + ${articleInfo.getId()}">编辑</a>
+                    <a class="layui-btn layui-btn-danger" th:href="@{/article/} + ${articleInfo.getId()}">删除</a>
                 </td>
             </tr>
 

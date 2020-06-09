@@ -56,4 +56,22 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
         articleInfo.setModifiedBy(new Date());
         articleInfoMapper.addArticle(articleInfo);
     }
+
+    @Override
+    public ArticleInfo getArticleInfoById(Long id) {
+        return articleInfoMapper.getArticleInfoById(id);
+    }
+
+    @Override
+    public void updateArticle(ArticleInfo articleInfo, MultipartFile file) {
+        String filename = storeArticle(file);
+        articleInfo.setFilename(filename);
+        articleInfo.setModifiedBy(new Date());
+        articleInfoMapper.updateArticle(articleInfo);
+    }
+
+    @Override
+    public void deleteArticleById(Long id) {
+        articleInfoMapper.deleteArticleById(id);
+    }
 }
