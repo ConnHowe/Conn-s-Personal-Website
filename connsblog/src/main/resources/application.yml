@@ -13,9 +13,20 @@ spring:
     # druid数据源专有配置
   thymeleaf:
     cache: false
+  # 文件上传
+  servlet:
+    multipart:
+      # 开启multipart上传功能
+      enabled: true
+      # 上传文件总的最大值
+      max-file-size: 10MB
+      # 单个文件的最大值
+      max-request-size: 10MB
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+
+
 
 
 

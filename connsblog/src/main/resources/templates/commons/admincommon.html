@@ -19,31 +19,24 @@
     <div class="layui-side layui-bg-black" th:fragment="sidebar">
         <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree">
-                <li th:class="${active=='admin.html'?'layui-nav-item layui-nav-itemed layui-this':'layui-nav-item layui-nav-itemed'}">
-                    <a th:href="@{/admin}">
+                <li th:class="${active=='websiteData.html'?'layui-nav-item layui-nav-itemed layui-this':'layui-nav-item layui-nav-itemed'}">
+                    <a th:href="@{/websiteData}">
                         <i class="layui-icon layui-icon-chart" style="font-size: 18px"></i>
                         网站数据
                     </a>
                 </li>
-                <li class="layui-nav-item layui-nav-itemed">
-                    <a th:href="@{#}">
-                        <i class="layui-icon layui-icon-file" style="font-size: 18px"></i>
-                        博客管理
+                <li th:class="${active=='addArticle.html'?'layui-nav-item layui-nav-itemed layui-this':'layui-nav-item layui-nav-itemed'}">
+                    <a th:href="@{/article/add}">
+                        <i class="layui-icon layui-icon-release" style="font-size: 18px"></i>
+                        发布博文
                     </a>
-                    <dl class="layui-nav-child">
-                        <dd>
-                            <a th:href="@{#}">
-                                <i class="layui-icon layui-icon-release" style="font-size: 18px"></i>
-                                发布博客
-                            </a>
-                        </dd>
-                        <dd>
-                            <a th:href="@{/articleInfos}">
-                                <i class="layui-icon layui-icon-log" style="font-size: 18px"></i>
-                                文章管理
-                            </a>
-                        </dd>
-                    </dl>
+                </li>
+                <li th:class="${active=='articleInfos.html'?'layui-nav-item layui-nav-itemed layui-this':'layui-nav-item layui-nav-itemed'}">
+                    <a th:href="@{/articleInfos}">
+                        <i class="layui-icon layui-icon-log" style="font-size: 18px"></i>
+                        博文管理
+                    </a>
+                </li>
                 </li>
                 <li th:class="${active=='sortmanager.html'?'layui-nav-item layui-nav-itemed layui-this':'layui-nav-item layui-nav-itemed'}">
                     <a th:href="@{/sortInfos}">

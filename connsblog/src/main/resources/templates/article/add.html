@@ -9,26 +9,39 @@
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div th:replace="~{commons/admincommon::header}"></div>
-    <div th:replace="~{commons/admincommon::sidebar(active='sortmanager.html')}"></div>
+    <div th:replace="~{commons/admincommon::sidebar(active='addArticle.html')}"></div>
 
     <div class="layui-body">
         <fieldset class="layui-elem-field layui-field-title">
-            <legend>添加分类</legend>
+            <legend>添加博客</legend>
         </fieldset>
-        <form class="layui-form" th:action="@{/addSort}" method="post">
+        <form class="layui-form" enctype="multipart/form-data" th:action="@{/article/add}" method="post">
             <input type="hidden" name="id">
             <div class="layui-form-item">
-                <label class="layui-form-label">分类名称</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="name" required placeholder="请输入分类名称"
+                <label class="layui-form-label">文章标题</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" required placeholder="请输入文章标题"
                            class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label">是否有效</label>
+                <label class="layui-form-label">文章简介</label>
                 <div class="layui-input-block">
-                    <input type="radio" name="isEffective" value="1" title="是" checked=""/>
-                    <input type="radio" name="isEffective" value="0" title="否"/>
+                    <textarea name="summary" required placeholder="请输入文章简介"
+                              class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">是否置顶</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="isTop" value="1" title="是" checked=""/>
+                    <input type="radio" name="isTop" value="0" title="否"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">上传文章</label>
+                <div class="layui-input-block">
+                    <input type="file" name="file" required>
                 </div>
             </div>
             <div class="layui-form-item">
@@ -46,7 +59,7 @@
     layui.use(['element'], function () {
         var element = layui.element;
     });
-    layui.use('form', function() {
+    layui.use('form', function () {
         var form = layui.form;
     })
 </script>

@@ -2,6 +2,7 @@ package com.connhowe.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,11 +19,16 @@ public class LoginController {
             HttpSession session) {
         if (username.equals("admin") && password.equals("ConnHowe")) {
             session.setAttribute("loginUser", username);
-            return "redirect:/admin";
+            return "redirect:/websiteData";
         } else {
             model.addAttribute("msg", "用户名或密码错误");
             return "login";
         }
+    }
+
+    @GetMapping("/websiteData")
+    public String websiteData() {
+        return "websitedata/list";
     }
 
 }

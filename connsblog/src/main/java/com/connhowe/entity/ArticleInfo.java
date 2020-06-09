@@ -14,6 +14,7 @@ public class ArticleInfo {
     private Long id;
     private String title;
     private String summary;
+    private String filename;
     private Integer isTop;
     private Integer traffic;
     private Date createBy;
