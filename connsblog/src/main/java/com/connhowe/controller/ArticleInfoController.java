@@ -1,7 +1,10 @@
 package com.connhowe.controller;
 
 import com.connhowe.entity.ArticleInfo;
+import com.connhowe.entity.SortInfo;
 import com.connhowe.service.ArticleInfoService;
+import com.connhowe.service.SortInfoService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -16,12 +19,18 @@ import java.util.List;
 public class ArticleInfoController {
 
     @Autowired
-    @Qualifier("ArticleInfoService")
     private ArticleInfoService articleInfoService;
+
+    @Autowired
+    private SortInfoService sortInfoService;
 
     @GetMapping()
     public String list(Model model) {
         List<ArticleInfo> articleInfos = articleInfoService.getArticleInfos();
+        for (ArticleInfo articleInfo : articleInfos) {
+            SortInfo sortInfo = sortInfoService.getSortInfoById(articleInfo.getSortId());
+            articleInfo.setSortName(sortInfo.getName());
+        }
         model.addAttribute("articleInfos", articleInfos);
         return "article/list";
     }
@@ -33,7 +42,9 @@ public class ArticleInfoController {
     }
 
     @GetMapping("/add")
-    public String toAdd() {
+    public String toAdd(Model model) {
+        List<SortInfo> sortInfos = sortInfoService.getSortInfos();
+        model.addAttribute("sortInfos", sortInfos);
         return "article/add";
     }
 

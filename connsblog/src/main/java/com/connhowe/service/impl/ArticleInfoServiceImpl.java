@@ -11,12 +11,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import java.io.File;
-import java.nio.file.*;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-@Service("ArticleInfoService")
+@Service
 public class ArticleInfoServiceImpl implements ArticleInfoService {
 
     private final String fileStorageLocation = "C:\\Users\\Conn\\Desktop\\新建文件夹\\";

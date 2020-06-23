@@ -13,8 +13,8 @@ public interface ArticleInfoMapper {
     @Select("select * from article_info")
     List<ArticleInfo> getArticleInfos();
 
-    @Insert("insert into article_info(title, summary, filename, is_top, create_by, modified_by) values (#{title}, #{summary}, #{filename}, #{isTop}, #{createBy}, #{modifiedBy})")
-    void addArticle(ArticleInfo articleInfo);
+    @Insert("insert into article_info(title, summary, sort_id, filename, is_top, create_by, modified_by) values (#{title}, #{summary}, #{sortId}, #{filename}, #{isTop}, #{createBy}, #{modifiedBy})")
+    Long addArticle(ArticleInfo articleInfo);
 
     @Select("select * from article_info where id=#{id}")
     ArticleInfo getArticleInfoById(@Param("id") Long id);
