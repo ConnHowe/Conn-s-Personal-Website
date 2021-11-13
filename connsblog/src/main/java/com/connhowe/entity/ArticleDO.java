@@ -9,15 +9,15 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ArticleInfo {
+public class ArticleDO {
 
     private Long id;
     private String title;
     private String summary;
-    private String filename;
+    private String content;
     private Integer isTop;
-    private Integer traffic;
-    private Date createBy;
-    private Date modifiedBy;
+    private Integer visitNumber;
+    private Date createdTime;
+    private Date modifiedTime;
 
 }

@@ -9,7 +9,7 @@
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div th:replace="~{commons/admincommon::header}"></div>
-    <div th:replace="~{commons/admincommon::sidebar(active='articleInfos.html')}"></div>
+    <div th:replace="~{commons/admincommon::sidebar(active='articleDOs.html')}"></div>
 
     <div class="layui-body">
         <fieldset class="layui-elem-field layui-field-title">
@@ -30,18 +30,18 @@
                 </th>
             </tr>
             <br>
-            <tr th:each="articleInfo:${articleInfos}">
-                <td th:text="${articleInfo.getId()}">id</td>
-                <td th:text="${articleInfo.getTitle()}">title</td>
-                <td th:text="${articleInfo.getSummary()}">summary</td>
-                <td th:text="${articleInfo.getFilename()}">filename</td>
-                <td th:text="${articleInfo.getIsTop()==1?'是':'否'}">is_top</td>
-                <td th:text="${articleInfo.getTraffic()}">traffic</td>
-                <td th:text="${#dates.format(articleInfo.getCreateBy(), 'yyyy-MM-dd HH:mm:ss')}">create_by</td>
-                <td th:text="${#dates.format(articleInfo.getModifiedBy(), 'yyyy-MM-dd HH:mm:ss')}">modified_by</td>
+            <tr th:each="articleDO:${articleDOs}">
+                <td th:text="${articleDO.getId()}">id</td>
+                <td th:text="${articleDO.getTitle()}">title</td>
+                <td th:text="${articleDO.getSummary()}">summary</td>
+                <td th:text="${articleDO.getContent()}">filename</td>
+                <td th:text="${articleDO.getIsTop()==1?'是':'否'}">is_top</td>
+                <td th:text="${articleDO.getVisitNumber()}">traffic</td>
+                <td th:text="${#dates.format(articleDO.getCreatedTime(), 'yyyy-MM-dd HH:mm:ss')}">create_by</td>
+                <td th:text="${#dates.format(articleDO.getModifiedTime(), 'yyyy-MM-dd HH:mm:ss')}">modified_by</td>
                 <td>
-                    <a class="layui-btn" th:href="@{/article/update/} + ${articleInfo.getId()}">编辑</a>
-                    <a class="layui-btn layui-btn-danger" th:href="@{/article/} + ${articleInfo.getId()}">删除</a>
+                    <a class="layui-btn" th:href="@{/article/update/} + ${articleDO.getId()}">编辑</a>
+                    <a class="layui-btn layui-btn-danger" th:href="@{/article/} + ${articleDO.getId()}">删除</a>
                 </td>
             </tr>
 

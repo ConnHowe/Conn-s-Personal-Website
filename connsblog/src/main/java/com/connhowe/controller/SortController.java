@@ -1,7 +1,7 @@
 package com.connhowe.controller;
 
-import com.connhowe.entity.SortInfo;
-import com.connhowe.service.SortInfoService;
+import com.connhowe.entity.SortDO;
+import com.connhowe.service.SortService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,41 +12,41 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.Collection;
 
 @Controller
-public class SortInfoController {
+public class SortController {
 
     @Autowired
-    private SortInfoService sortInfoService;
+    private SortService sortService;
 
-    @GetMapping("/sortInfos")
+    @GetMapping("/sort")
     public String list(Model model) {
-        Collection<SortInfo> sortInfos = sortInfoService.getSortInfos();
-        model.addAttribute("sortInfos", sortInfos);
+        Collection<SortDO> sortDOs = sortService.getSortInfos();
+        model.addAttribute("sortDOs", sortDOs);
         return "sort/list";
     }
 
     @PostMapping("/updateSort")
-    public String update(SortInfo sortInfo) {
-        sortInfoService.update(sortInfo);
-        return "redirect:/sortInfos";
+    public String update(SortDO sortDO) {
+        sortService.update(sortDO);
+        return "redirect:/sort";
     }
 
     @GetMapping("/sort/{id}")
     public String toUpdateSort(@PathVariable("id") Long id, Model model) {
-        SortInfo sortInfo = sortInfoService.getSortInfoById(id);
-        model.addAttribute("sortInfo", sortInfo);
+        SortDO sortDO = sortService.getSortInfoById(id);
+        model.addAttribute("sortDO", sortDO);
         return "sort/update";
     }
 
     @GetMapping("/delSort/{id}")
     public String delSortById(@PathVariable("id") Long id) {
-        sortInfoService.delSortById(id);
-        return "redirect:/sortInfos";
+        sortService.delSortById(id);
+        return "redirect:/sort";
     }
 
     @PostMapping("/addSort")
-    public String addSort(SortInfo sortInfo) {
-        sortInfoService.addSort(sortInfo);
-        return "redirect:/sortInfos";
+    public String addSort(SortDO sortDO) {
+        sortService.addSort(sortDO);
+        return "redirect:/sort";
     }
 
     @GetMapping("/addSort")

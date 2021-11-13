@@ -28,16 +28,16 @@
                 </th>
             </tr>
             <br>
-            <tr th:each="sortInfo:${sortInfos}">
-                <td th:text="${sortInfo.getId()}">id</td>
-                <td th:text="${sortInfo.getName()}">name</td>
-                <td th:text="${sortInfo.getNumber()}">number</td>
-                <td th:text="${#dates.format(sortInfo.getCreateBy(), 'yyyy-MM-dd HH:mm:ss')}">create_by</td>
-                <td th:text="${#dates.format(sortInfo.getModifiedBy(), 'yyyy-MM-dd HH:mm:ss')}">modified_by</td>
-                <td th:text="${sortInfo.getIsEffective()==1?'是':'否'}">is_effective</td>
+            <tr th:each="sortDO:${sortDOs}">
+                <td th:text="${sortDO.getId()}">id</td>
+                <td th:text="${sortDO.getName()}">name</td>
+                <td th:text="${sortDO.getArticleNumber()}">number</td>
+                <td th:text="${#dates.format(sortDO.getCreatedTime(), 'yyyy-MM-dd HH:mm:ss')}">create_by</td>
+                <td th:text="${#dates.format(sortDO.getModifiedTime(), 'yyyy-MM-dd HH:mm:ss')}">modified_by</td>
+                <td th:text="${sortDO.getIsEffective()==1?'是':'否'}">is_effective</td>
                 <td>
-                    <a class="layui-btn" th:href="@{/sort/} + ${sortInfo.getId()}">编辑</a>
-                    <a class="layui-btn layui-btn-danger" th:href="@{/delSort/} + ${sortInfo.getId()}">删除</a>
+                    <a class="layui-btn" th:href="@{/sortDO/} + ${sortDO.getId()}">编辑</a>
+                    <a class="layui-btn layui-btn-danger" th:href="@{/delSort/} + ${sortDO.getId()}">删除</a>
                 </td>
             </tr>
 

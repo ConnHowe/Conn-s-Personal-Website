@@ -9,13 +9,16 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SortInfo {
-
+public class SortDO {
     private Long id;
-    private String name;
-    private Integer number;
-    private Date createBy;
-    private Date modifiedBy;
-    private Integer isEffective;
 
+    private String name;
+
+    private Integer articleNumber;
+
+    private Date createdTime;
+
+    private Date modifiedTime;
+
+    private Integer isEffective;
 }

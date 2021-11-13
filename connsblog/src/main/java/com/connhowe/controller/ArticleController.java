@@ -1,7 +1,7 @@
 package com.connhowe.controller;
 
-import com.connhowe.entity.ArticleInfo;
-import com.connhowe.service.ArticleInfoService;
+import com.connhowe.entity.ArticleDO;
+import com.connhowe.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -13,22 +13,22 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/article")
-public class ArticleInfoController {
+public class ArticleController {
 
     @Autowired
     @Qualifier("ArticleInfoService")
-    private ArticleInfoService articleInfoService;
+    private ArticleService articleService;
 
     @GetMapping()
     public String list(Model model) {
-        List<ArticleInfo> articleInfos = articleInfoService.getArticleInfos();
-        model.addAttribute("articleInfos", articleInfos);
+        List<ArticleDO> articleDOs = articleService.getArticleInfos();
+        model.addAttribute("articleDOs", articleDOs);
         return "article/list";
     }
 
     @GetMapping("/{id}")
     public String delete(@PathVariable("id") Long id) {
-        articleInfoService.deleteArticleById(id);
+        articleService.deleteArticleById(id);
         return "redirect:/article";
     }
 
@@ -38,21 +38,21 @@ public class ArticleInfoController {
     }
 
     @PostMapping("/add")
-    public String add(ArticleInfo articleInfo, @RequestParam("file") MultipartFile file) {
-        articleInfoService.addArticle(articleInfo, file);
+    public String add(ArticleDO articleDO, @RequestParam("file") MultipartFile file) {
+        articleService.addArticle(articleDO, file);
         return "redirect:/article";
     }
 
     @GetMapping("/update/{id}")
     public String update(@PathVariable("id") Long id, Model model) {
-        ArticleInfo articleInfo = articleInfoService.getArticleInfoById(id);
-        model.addAttribute("articleInfo", articleInfo);
+        ArticleDO articleDO = articleService.getArticleInfoById(id);
+        model.addAttribute("articleDO", articleDO);
         return "article/update";
     }
 
     @PostMapping("/update")
-    public String update(ArticleInfo articleInfo, @RequestParam("file") MultipartFile file) {
-        articleInfoService.updateArticle(articleInfo, file);
+    public String update(ArticleDO articleDO, @RequestParam("file") MultipartFile file) {
+        articleService.updateArticle(articleDO, file);
         return "redirect:/article";
     }
 }

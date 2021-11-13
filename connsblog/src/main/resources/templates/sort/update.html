@@ -16,21 +16,21 @@
             <legend>分类修改</legend>
         </fieldset>
         <form class="layui-form" th:action="@{/updateSort}" method="post">
-            <input type="hidden" name="id" th:value="${sortInfo.getId()}">
+            <input type="hidden" name="id" th:value="${sortDO.getId()}">
             <div class="layui-form-item">
                 <label class="layui-form-label">分类名称</label>
                 <div class="layui-input-inline">
                     <input type="text" name="name" required placeholder="请输入分类名称"
-                           class="layui-input" th:value="${sortInfo.getName()}">
+                           class="layui-input" th:value="${sortDO.getName()}">
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">是否有效</label>
                 <div class="layui-input-block">
                     <input type="radio" name="isEffective" value="1" title="是"
-                           th:checked="${sortInfo.getIsEffective()==1}"/>
+                           th:checked="${sortDO.getIsEffective()==1}"/>
                     <input type="radio" name="isEffective" value="0" title="否"
-                           th:checked="${sortInfo.getIsEffective()==0}"/>
+                           th:checked="${sortDO.getIsEffective()==0}"/>
                 </div>
             </div>
             <div class="layui-form-item">

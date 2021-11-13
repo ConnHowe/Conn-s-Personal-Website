@@ -16,28 +16,28 @@
             <legend>修改博文</legend>
         </fieldset>
         <form class="layui-form" enctype="multipart/form-data" th:action="@{/article/update}" method="post">
-            <input type="hidden" name="id" th:value="${articleInfo.getId()}">
+            <input type="hidden" name="id" th:value="${articleDO.getId()}">
             <div class="layui-form-item">
                 <label class="layui-form-label">文章标题</label>
                 <div class="layui-input-block">
                     <input type="text" name="title" required placeholder="请输入文章标题"
-                           class="layui-input" th:value="${articleInfo.getTitle()}">
+                           class="layui-input" th:value="${articleDO.getTitle()}">
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">文章简介</label>
                 <div class="layui-input-block">
                     <textarea name="summary" required placeholder="请输入文章简介"
-                              class="layui-textarea">[[ ${articleInfo.getSummary()} ]]</textarea>
+                              class="layui-textarea">[[ ${articleDO.getSummary()} ]]</textarea>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">是否置顶</label>
                 <div class="layui-input-block">
                     <input type="radio" name="isTop" value="1" title="是"
-                           th:checked="${articleInfo.getIsTop()==1}"/>
+                           th:checked="${articleDO.getIsTop()==1}"/>
                     <input type="radio" name="isTop" value="0" title="否"
-                           th:checked="${articleInfo.getIsTop()==0}"/>
+                           th:checked="${articleDO.getIsTop()==0}"/>
                 </div>
             </div>
             <div class="layui-form-item">

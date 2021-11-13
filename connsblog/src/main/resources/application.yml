@@ -8,7 +8,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/connsblog?characterEncoding=utf-8&useUnicode=true&serverTimezone=UTC
     username: root
-    password: root
+    password: mysql
     type: com.alibaba.druid.pool.DruidDataSource
     # druid数据源专有配置
   thymeleaf:
