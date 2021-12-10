@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.6</version>
+        <version>2.5.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.connhowe</groupId>
@@ -21,9 +21,10 @@
 
         <mybatis-spring-boot-starter.version>2.2.0</mybatis-spring-boot-starter.version>
         <druid.version>1.2.8</druid.version>
-        <log4j-core.version>2.14.1</log4j-core.version>
+        <log4j-core.version>2.15.0</log4j-core.version>
         <springfox-swagger2.version>3.0.0</springfox-swagger2.version>
         <springfox-swagger-ui.version>3.0.0</springfox-swagger-ui.version>
+        <guava.version>31.0.1-jre</guava.version>
     </properties>
 
     <dependencies>
@@ -43,6 +44,18 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <!-- jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+
+        <!-- common -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
 
         <!-- springboot测试 -->
@@ -109,5 +122,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+
+        <!-- 本地缓存 -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+
     </dependencies>
 </project>
